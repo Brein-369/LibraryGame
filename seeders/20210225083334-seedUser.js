@@ -38,6 +38,36 @@ module.exports = {
       email : "abdul@mail.com",
       createdAt : new Date(),
       updatedAt : new Date()
+    },
+    {
+      username : "mahesa",
+      password : "mahe123",
+      first_name : "Mahesa",
+      last_name : "NurAlamsyah",
+      gender : "male",
+      email : "mahe33@mail.com",
+      createdAt : new Date(),
+      updatedAt : new Date()
+    },
+    {
+      username : "abdul",
+      password : "mujib13",
+      first_name : "Abdul",
+      last_name : "Mujib",
+      gender : "male",
+      email : "mujib20@mail.com",
+      createdAt : new Date(),
+      updatedAt : new Date()
+    },
+    {
+      username : "boby",
+      password : "boby88",
+      first_name : "Boby",
+      last_name : "Bewa",
+      gender : "male",
+      email : "boby88@mail.com",
+      createdAt : new Date(),
+      updatedAt : new Date()
     }
     ]
    return queryInterface.bulkInsert("Users", sample)

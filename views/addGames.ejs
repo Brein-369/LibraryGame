@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add Games</h1>
+    <form action="/games/add" method="POST">
+        <label for="name">Name</label> <br>
+        <input type="text" name="name" placeholder="Coc"> <br>
+        <label for="genre">Genre</label><br>
+        <input type="text" Name="genre" placeholder="fps"> <br>
+        <label for="release_year">ReleaseYear</label> <br>
+        <input type="text" name="release_year" placeholder="2010"> <br>
+        <label for="rating">Rating</label> <br>
+        <input type="text" name="rating" placeholder="8"> <br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
