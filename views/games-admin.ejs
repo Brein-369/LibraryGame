@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+</head>
+<body>
+    <h1>Games</h1>
+    <br><a href="/admin/users">Show All Users</a>|
+    <a href="/admin/games">Show All Games</a>|
+    <a href="/adminLogout">Logout Admin</a>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Release Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(e=>{ %>
+                <tr>
+                    <td><%=e.name%></td>
+                    <td><%=e.genre%></td>
+                    <td><%=e.release_year%></td>
+                    <td><a href="/admin/games/<%=e.id%>/delete">Delete</a>|
+                        <a href="/admin/games/<%=e.id%>/edit">Edit</a>|
+                        <a href="/admin/games/<%=e.id%>/seeUsers">See Users</a></td>
+                </tr>
+            <% })%>
+        </tbody>
+    
+    </table>
+</body>
+</html>

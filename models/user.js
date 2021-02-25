@@ -13,17 +13,80 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.belongsToMany(models.Game, {through : models.UserGame})
     }
+    
+    gamersName(){
+      return `gamers ${this.first_name}`
+    }
+
   };
   User.init({
-    username: DataTypes.STRING,
-    password: DataTypes.STRING,
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    email: DataTypes.STRING
+    username: {
+      type : DataTypes.STRING,
+      validate : {
+        isAlphanumeric : {
+          args : true,
+          msg : "username should not be alphanumeric"
+        }
+      }
+    }, 
+    password: {
+      type : DataTypes.STRING,
+      validate : {
+        isAlphanumeric : {
+          args : true,
+          msg : "password should not be alphanumeric"
+        }
+      }
+    }, 
+    first_name: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : "first name should not be empty"
+        }
+      }
+    }, 
+    last_name: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : "last name should not be empty"
+        }
+      }
+    }, 
+    gender: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : "gender should not be empty"
+        }
+      }
+    }, 
+    email: {
+      type : DataTypes.STRING,
+      validate : {
+        isEmail : {
+          args : true,
+          msg : "thats not email format"
+        }
+      }
+    }, 
+    full_name : DataTypes.STRING,
+    status : DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',
   });
+
+  User.beforeCreate((instance,options)=>{
+    instance.full_name = `${instance.first_name} ${instance.last_name}`
+    instance.status = "user"
+  })
+
+  
+
   return User;
 };

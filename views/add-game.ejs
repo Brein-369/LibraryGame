@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Game</title>
+</head>
+<body>
+    <h1>Add Game</h1>
+    <form action="/users/<%=id%>/addgame" method="POST">
+        <label for="gameId">Choose Game</label><br>
+        <select name="gameId" id="gameId">
+            <% data.forEach(e=>{ %>
+                <option value=<%=e.id%> ><%= e.name %> | <%= e.genre %> | <%= e.release_year %></option>
+            <% })%>
+        </select><br>
+        
+        <label for="comment">Add Comment</label><br>
+        <input type="text" id="comment" name="comment">
+        <input type="submit" value="Add Game">
+    </form>
+</body>
+</html>

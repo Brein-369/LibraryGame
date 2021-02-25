@@ -15,10 +15,34 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Game.init({
-    name: DataTypes.STRING,
-    genre: DataTypes.STRING,
+    name: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : "game should not be empty"
+        }
+      }
+    }, 
+    genre: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : "genre should not be empty"
+        }
+      }
+    }, 
     release_year: DataTypes.STRING,
-    rating: DataTypes.INTEGER
+    rating: {
+      type : DataTypes.STRING,
+      validate : {
+        len : {
+          args : [1,10],
+          msg : "please fill rating between 1 - 10"
+        }
+      }
+    }, 
   }, {
     sequelize,
     modelName: 'Game',
