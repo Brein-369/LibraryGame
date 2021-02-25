@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Games </title>
+</head>
+<body>
+    <h1>List games</h1>
+    <button><a href="/games/add">AddGames</a></button> 
+    <table border="1">
+        <tr>
+            <th>name</th>
+            <th>genre</th>
+            <th>release_year</th>
+            <th>rating</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <% data.forEach(el => { %>
+                <td><%= el.name %></td>
+                <td><%= el.genre %></td>
+                <td><%= el.release_year %></td>
+                <td><%= el.rating %></td>
+            <td>
+                <button><a href="/games/edit<%= el.id %>">EDIT</a></button>
+                <button><a href="/games/delete<%= el.id %>">DELETE</a></button>
+                <button><a href="/user<%= el.id %>">See User</a></button>
+            </td>   
+        </tr>
+        <% }) %> 
+    </table>
+</body>
+</html>
